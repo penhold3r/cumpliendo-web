@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
+import '@latty-ds/web';
+import '@latty-ds/icons';
 import { initLattyTheme } from '@/theme/lattyConfig';
 import { registerCumpliendoIcons } from '@/theme/icons';
 
