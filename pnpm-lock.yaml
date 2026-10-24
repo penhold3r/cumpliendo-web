@@ -17,6 +17,9 @@ importers:
       '@latty-ds/tokens':
         specifier: ^1.3.0
         version: 1.3.0
+      '@latty-ds/web':
+        specifier: ^1.3.0
+        version: 1.3.0(lit@3.3.3)
       date-fns:
         specifier: ^4.4.0
         version: 4.4.0
