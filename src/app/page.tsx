@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@latty-ds/react';
-import '@latty-ds/icons';
+import { Button, Icon } from '@latty-ds/react';
 
 export default function LandingPage() {
   return (
@@ -26,7 +25,7 @@ export default function LandingPage() {
             </p>
             <Button variant="primary" className="w-full">
               <span className="flex items-center justify-center gap-2">
-                <lt-icon name="person" style={{ width: '16px', height: '16px', display: 'flex' }} />
+                <Icon name="user" size="sm" />
                 Sign in with Google
               </span>
             </Button>
