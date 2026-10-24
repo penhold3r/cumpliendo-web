@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@latty-ds/tokens/dist/tokens.css";
+@import "@latty-ds/tokens/tokens.css";
 
 /* FunnelDisplay fonts - self-hosted */
 @font-face {
