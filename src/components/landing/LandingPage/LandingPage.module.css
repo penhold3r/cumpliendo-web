@@ -1,0 +1,141 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lt-spacing-8) var(--lt-spacing-6);
+  background: var(--lt-bg-subtle);
+}
+
+.shell {
+  width: 100%;
+  max-width: 64rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--lt-spacing-10);
+  align-content: center;
+}
+
+@media (min-width: 60rem) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'hero features'
+      'actions features';
+    column-gap: var(--lt-spacing-16);
+    row-gap: var(--lt-spacing-8);
+    align-items: center;
+  }
+
+  .hero {
+    grid-area: hero;
+  }
+
+  .actions {
+    grid-area: actions;
+  }
+
+  .features {
+    grid-area: features;
+  }
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  align-items: flex-start;
+}
+
+.logo {
+  /* The mark is a barbell: its viewBox is cropped to the glyph's 21.5 x 11.5
+     bounds, so the box must match that ratio or the icon floats in dead space. */
+  width: 3.25rem;
+  height: 1.75rem;
+  flex: none;
+  background-color: var(--lt-text-primary);
+  -webkit-mask: url('/cumpl-logo.svg') center / contain no-repeat;
+  mask: url('/cumpl-logo.svg') center / contain no-repeat;
+}
+
+.heading {
+  /* Latty display variants default to a very light weight; FunnelDisplay's
+     lightest cut is 400, so ask for semibold instead of a synthesised 200. */
+  --lt-text-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  color: var(--lt-text-muted);
+  text-wrap: balance;
+}
+
+/* ── Actions ──────────────────────────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  align-items: stretch;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.footer {
+  color: var(--lt-text-subtle);
+  text-wrap: balance;
+}
+
+/* ── Feature card ─────────────────────────────────────────────────────── */
+
+/* lt-surface draws its border on the shadow `.surface` element, so padding
+   has to live on this inner wrapper rather than on the host. */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--lt-spacing-6);
+}
+
+/* Sit the card on the canvas colour so it lifts off the subtle page ground. */
+.features {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-5);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--lt-spacing-4);
+}
+
+.featureIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: var(--lt-border-radius);
+  background: var(--lt-bg-primary-subtle);
+  color: var(--lt-text-primary);
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-1);
+  min-width: 0;
+}
+
+.featureDescription {
+  color: var(--lt-text-muted);
+}

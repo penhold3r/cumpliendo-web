@@ -1,1 +1,1 @@
-export const useAuth = (): { user: any } => ({ user: null });
+export const useAuth = (): { user: unknown } => ({ user: null });

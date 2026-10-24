@@ -1,30 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { lattyStyleSheet } from "@/theme/lattyConfig";
 
 export const metadata: Metadata = {
   title: "Cumpliendo",
-  description: "Workout tracker",
+  description: "Track your workouts, build routines, and reach your goals",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        {/* SSR-injected Latty tokens so the first paint uses the Cumpliendo palette. */}
+        <style id="lt-tokens" dangerouslySetInnerHTML={{ __html: lattyStyleSheet }} />
+      </head>
+      <body className="min-h-full">
         <Providers>{children}</Providers>
       </body>
     </html>
