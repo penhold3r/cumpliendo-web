@@ -36,3 +36,14 @@ const localStorageMock = {
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 global.indexedDB = vi.fn() as unknown as IDBFactory;
+
+// jsdom's ElementInternals is missing the form-associated custom element API
+// that Latty's form components (lt-select, lt-input…) call on update.
+if (typeof ElementInternals !== 'undefined') {
+  const internals = ElementInternals.prototype as unknown as Record<string, unknown>;
+  internals.setFormValue ??= () => {};
+  internals.setValidity ??= () => {};
+  internals.checkValidity ??= () => true;
+  internals.reportValidity ??= () => true;
+  internals.states ??= new Set();
+}

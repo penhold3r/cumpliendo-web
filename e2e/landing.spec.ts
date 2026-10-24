@@ -1,15 +1,27 @@
 import { expect, test } from '@playwright/test';
 
+const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:3001';
+
 /**
- * Guards the two regressions that broke the first landing build:
+ * Guards the regressions that broke the first landing build:
  *   1. Latty tokens were never applied, so the CTA fell back to Latty's
  *      default orange instead of the Cumpliendo indigo.
  *   2. The CSS Module class names came back empty, so the layout collapsed.
+ *   3. The server and the client disagreed on the language, so the SSR HTML
+ *      was frozen in the build machine's locale.
  */
 test.describe('landing page', () => {
+  // Pin the language so copy assertions do not depend on the runner's locale.
+  test.beforeEach(async ({ context }) => {
+    await context.addCookies([
+      { name: 'cumpliendo-language', value: 'en', url: BASE_URL },
+    ]);
+  });
+
   test('renders the branded sign-in screen with Latty tokens applied', async ({
     page,
   }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto('/');
 
     await expect(page.locator('lt-text[variant="display-lg"]')).toHaveText(
@@ -44,5 +56,94 @@ test.describe('landing page', () => {
       () => document.documentElement.scrollWidth > window.innerWidth
     );
     expect(overflow).toBe(false);
+  });
+
+  test('server-renders the language cookie, not the runner locale', async ({
+    request,
+  }) => {
+    const response = await request.get('/', {
+      headers: {
+        cookie: 'cumpliendo-language=es',
+        'accept-language': 'en-US,en;q=0.9',
+      },
+    });
+    const html = await response.text();
+
+    expect(html).toContain('<html lang="es"');
+    expect(html).toContain('Continuar con Google');
+  });
+
+  test('uses the Accept-Language header on a first visit', async ({ request }) => {
+    const response = await request.get('/', {
+      headers: { 'accept-language': 'es-ES,es;q=0.9' },
+    });
+
+    expect(await response.text()).toContain('<html lang="es"');
+  });
+
+  test('applies the stored theme before the first paint', async ({ page }) => {
+    await page.addInitScript(() =>
+      localStorage.setItem('cumpliendo:theme', 'dark')
+    );
+    await page.goto('/');
+
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  });
+
+  test('switches theme and language from the top-right toolbar', async ({
+    page,
+  }) => {
+    await page.goto('/');
+
+    const themeSelect = page.locator('lt-select').first();
+    await themeSelect.getByRole('combobox').click();
+    await page.getByRole('option', { name: 'Dark' }).click();
+
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect
+      .poll(() => page.evaluate(() => localStorage.getItem('cumpliendo:theme')))
+      .toBe('dark');
+
+    const languageSelect = page.locator('lt-select').nth(1);
+    await languageSelect.getByRole('combobox').click();
+    await page.getByRole('option', { name: 'Español' }).click();
+
+    await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+    await expect(page.locator('lt-button')).toContainText(
+      'Continuar con Google'
+    );
+
+    // Both preferences survive a reload (theme via localStorage, language via
+    // the cookie read during SSR).
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('lt-button')).toContainText(
+      'Continuar con Google'
+    );
+  });
+
+  test('loads the body and heading fonts from the CDN', async ({ page }) => {
+    await page.goto('/');
+
+    // Playwright pierces the shadow DOM, so the inner <h1> is addressable and
+    // waiting on it also waits for the custom element to upgrade.
+    const heading = page.locator('lt-text[variant="display-lg"] h1');
+    await expect(heading).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+
+    const headingFont = await heading.evaluate(
+      el => getComputedStyle(el).fontFamily
+    );
+    const { bodyFont, bodyLoaded, headingLoaded } = await page.evaluate(() => ({
+      bodyFont: getComputedStyle(document.body).fontFamily,
+      bodyLoaded: document.fonts.check('400 1rem "Inter"'),
+      headingLoaded: document.fonts.check('600 1rem "Funnel Display"'),
+    }));
+
+    expect(bodyFont).toContain('Inter');
+    expect(headingFont).toContain('Funnel Display');
+    expect(bodyLoaded).toBe(true);
+    expect(headingLoaded).toBe(true);
   });
 });

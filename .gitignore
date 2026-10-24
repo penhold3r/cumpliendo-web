@@ -17,6 +17,9 @@
 /blob-report/
 /playwright/.cache/
 
+# local review screenshots
+/DOCS/
+
 # next.js
 /.next/
 /out/

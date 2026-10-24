@@ -1,10 +1,19 @@
 .page {
+  position: relative;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--lt-spacing-8) var(--lt-spacing-6);
   background: var(--lt-bg-subtle);
+}
+
+/* Below the desktop breakpoint the toolbar is absolutely positioned over the
+   page, so push the hero down to clear it (toolbar: 16px + 32px tall). */
+@media (max-width: 59.999rem) {
+  .page {
+    padding-top: calc(var(--lt-spacing-4) + 2rem + var(--lt-spacing-6));
+  }
 }
 
 .shell {

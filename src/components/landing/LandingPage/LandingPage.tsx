@@ -3,6 +3,7 @@
 import { Button, Icon, Surface, Text } from '@latty-ds/react';
 import { signIn } from 'next-auth/react';
 import { useTranslation } from '@/i18n';
+import { PageToolbar } from '@/components/layout/PageToolbar';
 import styles from './LandingPage.module.css';
 
 /**
@@ -32,6 +33,8 @@ export function LandingPage() {
 
   return (
     <main className={styles.page}>
+      <PageToolbar />
+
       <div className={styles.shell}>
         <header className={styles.hero}>
           <span className={styles.logo} aria-hidden="true" />

@@ -1,43 +1,10 @@
 @import "tailwindcss";
 
-/* FunnelDisplay — self-hosted, mapped into Latty via configure()'s font tokens. */
-@font-face {
-  font-family: "FunnelDisplay";
-  src: url("/fonts/FunnelDisplay-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FunnelDisplay";
-  src: url("/fonts/FunnelDisplay-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FunnelDisplay";
-  src: url("/fonts/FunnelDisplay-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FunnelDisplay";
-  src: url("/fonts/FunnelDisplay-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FunnelDisplay";
-  src: url("/fonts/FunnelDisplay-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 /*
+ * Fonts (Inter for body, Funnel Display for headings) are loaded from Google
+ * Fonts through Latty's `configure()` / `createStyleSheet()` font tokens — see
+ * src/theme/lattyConfig.ts. Do not add @font-face blocks here.
+ *
  * Body background, text colour and font come from Latty's semantic tokens
  * (--lt-bg-default / --lt-text-default / --lt-typography-fontFamilyPrimary),
  * applied by @latty-ds/web/css/latty.css. Do not override them here or the
@@ -46,4 +13,24 @@
 html,
 body {
   min-height: 100%;
+}
+
+/* Let native UI (scrollbars, form controls) follow the active Latty theme.
+   data-theme is set by the inline script in the root layout. */
+:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }
