@@ -1,5 +1,9 @@
 .page {
+  position: relative;
   min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--lt-spacing-8) var(--lt-spacing-6);
   background: var(--lt-bg-subtle);
 }
@@ -7,15 +11,35 @@
 .shell {
   width: 100%;
   max-width: 48rem;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-6);
+  align-items: center;
 }
 
+.title {
+  margin: 0;
+}
+
+/* lt-surface draws its border on the shadow `.surface` element, so padding
+   has to live on this inner wrapper rather than on the host. */
 .card {
   --lt-surface-bg: var(--lt-bg-default);
+}
+
+.cardInner {
   display: flex;
   flex-direction: column;
   gap: var(--lt-spacing-6);
   padding: var(--lt-spacing-6);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  text-align: center;
 }
 
 .avatarWrapper {
@@ -24,14 +48,12 @@
 }
 
 .name {
-  text-align: center;
   margin: 0;
 }
 
 .email {
-  text-align: center;
-  color: var(--lt-text-muted);
   margin: 0;
+  color: var(--lt-text-muted);
 }
 
 .syncedBadge {

@@ -44,57 +44,65 @@ export function Profile() {
         </Text>
 
         <Surface appearance="outlined" elevation="1" className={styles.card}>
-          <div className={styles.avatarWrapper}>
-            <Avatar
-              src={profileUser.image ?? undefined}
-              alt={profileUser.name ?? t('profile.account')}
-              size="lg"
-            />
+          <div className={styles.cardInner}>
+            <div className={styles.header}>
+              <div className={styles.avatarWrapper}>
+                <Avatar
+                  src={profileUser.image ?? undefined}
+                  alt={profileUser.name ?? t('profile.account')}
+                  size="lg"
+                />
+              </div>
+              <div className={styles.identity}>
+                <Text as="h1" variant="display-lg" className={styles.name}>
+                  {profileUser.name ?? t('profile.account')}
+                </Text>
+                <Text variant="body-sm" className={styles.email}>
+                  {profileUser.email ?? '—'}
+                </Text>
+                <Badge className={styles.syncedBadge}>
+                  {t('profile.synced')}
+                </Badge>
+              </div>
+            </div>
+
+            <Divider className={styles.divider} />
+
+            <List className={styles.list}>
+              <ListItem className={styles.listItem}>
+                <span className={styles.label}>{t('profile.userId')}</span>
+                <span className={styles.value}>{profileUser.id}</span>
+              </ListItem>
+              <ListItem className={styles.listItem}>
+                <span className={styles.label}>{t('profile.email')}</span>
+                <span className={styles.value}>
+                  {profileUser.email ?? '—'}
+                </span>
+              </ListItem>
+              <ListItem className={styles.listItem}>
+                <span className={styles.label}>{t('profile.memberSince')}</span>
+                <span className={styles.value}>
+                  {formatDate(profileUser.createdAt)}
+                </span>
+              </ListItem>
+              <ListItem className={styles.listItem}>
+                <span className={styles.label}>{t('profile.lastLogin')}</span>
+                <span className={styles.value}>
+                  {formatDate(profileUser.lastLoginAt)}
+                </span>
+              </ListItem>
+            </List>
+
+            <Button
+              appearance="outlined"
+              size="sm"
+              fullWidth
+              onClick={() => void signOut({ callbackUrl: '/' })}
+              className={styles.signOutButton}
+            >
+              {t('profile.signOut')}
+            </Button>
           </div>
-          <Text as="h2" variant="lead" className={styles.name}>
-            {profileUser.name ?? t('profile.account')}
-          </Text>
-          <Text variant="body-sm" className={styles.email}>
-            {profileUser.email ?? '—'}
-          </Text>
-          <Badge className={styles.syncedBadge}>
-            {t('profile.synced')}
-          </Badge>
-
-          <Divider className={styles.divider} />
-
-          <List className={styles.list}>
-            <ListItem className={styles.listItem}>
-              <span className={styles.label}>{t('profile.userId')}</span>
-              <span className={styles.value}>{profileUser.id}</span>
-            </ListItem>
-            <ListItem className={styles.listItem}>
-              <span className={styles.label}>{t('profile.email')}</span>
-              <span className={styles.value}>{profileUser.email ?? '—'}</span>
-            </ListItem>
-            <ListItem className={styles.listItem}>
-              <span className={styles.label}>{t('profile.memberSince')}</span>
-              <span className={styles.value}>
-                {formatDate(profileUser.createdAt)}
-              </span>
-            </ListItem>
-            <ListItem className={styles.listItem}>
-              <span className={styles.label}>{t('profile.lastLogin')}</span>
-              <span className={styles.value}>
-                {formatDate(profileUser.lastLoginAt)}
-              </span>
-            </ListItem>
-          </List>
-
-          <Button
-            appearance="outlined"
-            size="sm"
-            fullWidth
-            onClick={() => void signOut({ callbackUrl: '/' })}
-            className={styles.signOutButton}
-          >
-            {t('profile.signOut')}
-          </Button>
         </Surface>
       </div>
     </main>
