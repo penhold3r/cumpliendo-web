@@ -14,12 +14,13 @@ export default auth((req) => {
   const isOnLanding = req.nextUrl.pathname === "/";
   const isOnHome = req.nextUrl.pathname === "/home";
   const isOnProfile = req.nextUrl.pathname === "/profile";
+  const isOnRoutines = req.nextUrl.pathname === "/routines";
 
   if (isLoggedIn && isOnLanding) {
     return NextResponse.redirect(new URL("/home", req.nextUrl));
   }
 
-  if (!isLoggedIn && (isOnHome || isOnProfile)) {
+  if (!isLoggedIn && (isOnHome || isOnProfile || isOnRoutines)) {
     return NextResponse.redirect(new URL("/", req.nextUrl));
   }
 
@@ -27,5 +28,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/", "/home", "/profile"],
+  matcher: ["/", "/home", "/profile", "/routines"],
 };
