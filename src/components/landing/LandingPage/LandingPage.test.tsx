@@ -9,6 +9,15 @@ vi.mock('next-auth/react', () => ({
   signIn: (...args: unknown[]) => signIn(...args),
 }));
 
+/**
+ * The toolbar also renders lt-buttons, so the CTA is found by its label rather
+ * than by position or attribute (React sets custom-element props, not attrs).
+ */
+const findCta = (container: HTMLElement) =>
+  Array.from(container.querySelectorAll('lt-button')).find(button =>
+    button.textContent?.includes(i18n.t('onboarding.continueGoogle'))
+  );
+
 describe('LandingPage', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('en');
@@ -21,9 +30,7 @@ describe('LandingPage', () => {
     expect(screen.getByText('Cumpliendo')).toBeInTheDocument();
     expect(screen.getByText(i18n.t('onboarding.tagline'))).toBeInTheDocument();
 
-    const button = container.querySelector('lt-button');
-    expect(button).not.toBeNull();
-    expect(button?.textContent).toContain(i18n.t('onboarding.continueGoogle'));
+    expect(findCta(container)).toBeDefined();
   });
 
   it('renders every value proposition from the onboarding copy', () => {
@@ -39,7 +46,7 @@ describe('LandingPage', () => {
   it('starts the Google OAuth flow when the call to action is clicked', () => {
     const { container } = render(<LandingPage />);
 
-    fireEvent.click(container.querySelector('lt-button') as HTMLElement);
+    fireEvent.click(findCta(container) as HTMLElement);
 
     expect(signIn).toHaveBeenCalledWith('google', { callbackUrl: '/home' });
   });

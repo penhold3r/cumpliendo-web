@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
+import { SessionProvider } from 'next-auth/react';
+
 import '@latty-ds/tokens/tokens.css';
 import '@latty-ds/tokens/semantic.css';
 import '@latty-ds/web/css/latty.css';
@@ -15,5 +17,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
     registerCumpliendoIcons();
   }, []);
 
-  return <>{children}</>;
+  return <SessionProvider>{children}</SessionProvider>;
 }

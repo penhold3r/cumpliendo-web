@@ -7,22 +7,13 @@
   align-items: center;
   gap: var(--lt-spacing-2);
 
-  /* lt-select paints its trigger with --lt-bg-subtle, the same colour as the
-     page ground, so raise it to the canvas colour to keep it legible. */
-  --lt-bg-subtle: var(--lt-bg-default);
-}
-
-.select {
-  width: 8.25rem;
+  /* Let the triggers size to their content instead of the 88px button floor. */
+  --lt-button-min-width: 0;
 }
 
 @media (max-width: 30rem) {
   .toolbar {
     top: var(--lt-spacing-4);
     right: var(--lt-spacing-4);
-  }
-
-  .select {
-    width: 7.25rem;
   }
 }

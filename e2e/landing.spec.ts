@@ -28,7 +28,7 @@ test.describe('landing page', () => {
       'Cumpliendo'
     );
 
-    const button = page.locator('lt-button');
+    const button = page.locator('lt-button', { hasText: 'Google' });
     await expect(button).toContainText('Continue with Google');
 
     const buttonFill = await button.evaluate(el => {
@@ -49,7 +49,7 @@ test.describe('landing page', () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
 
-    const button = page.locator('lt-button');
+    const button = page.locator('lt-button', { hasText: 'Google' });
     await expect(button).toBeInViewport();
 
     const overflow = await page.evaluate(
@@ -95,32 +95,29 @@ test.describe('landing page', () => {
   }) => {
     await page.goto('/');
 
-    const themeSelect = page.locator('lt-select').first();
-    await themeSelect.getByRole('combobox').click();
-    await page.getByRole('option', { name: 'Dark' }).click();
+    const themeMenu = page.locator('lt-dropdown').first();
+    await themeMenu.locator('lt-button').click();
+    await page.getByRole('menuitem', { name: 'Dark' }).click();
 
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     await expect
       .poll(() => page.evaluate(() => localStorage.getItem('cumpliendo:theme')))
       .toBe('dark');
 
-    const languageSelect = page.locator('lt-select').nth(1);
-    await languageSelect.getByRole('combobox').click();
-    await page.getByRole('option', { name: 'Español' }).click();
+    const languageMenu = page.locator('lt-dropdown').nth(1);
+    await languageMenu.locator('lt-button').click();
+    await page.getByRole('menuitem', { name: 'Español' }).click();
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-    await expect(page.locator('lt-button')).toContainText(
-      'Continuar con Google'
-    );
+    const cta = page.locator('lt-button', { hasText: 'Google' });
+    await expect(cta).toContainText('Continuar con Google');
 
     // Both preferences survive a reload (theme via localStorage, language via
     // the cookie read during SSR).
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-    await expect(page.locator('lt-button')).toContainText(
-      'Continuar con Google'
-    );
+    await expect(cta).toContainText('Continuar con Google');
   });
 
   test('loads the body and heading fonts from the CDN', async ({ page }) => {

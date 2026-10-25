@@ -16,7 +16,7 @@ export const metadata: Metadata = {
  * bootstrap script below. Reading cookies here would make every route — the
  * 404 included — block on a dynamic render.
  */
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang={DEFAULT_LANGUAGE}
