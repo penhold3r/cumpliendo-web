@@ -1,8 +1,16 @@
 import { fireEvent, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { signOut, useSession } from 'next-auth/react';
 import { i18n } from '@/i18n';
 import { THEME_STORAGE_KEY } from '@/theme/themePreference';
 import { PageToolbar } from './PageToolbar';
+
+vi.mock('next-auth/react', () => ({
+  signIn: vi.fn(),
+  signOut: vi.fn(),
+  SessionProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  useSession: vi.fn(() => ({ data: null, status: 'unauthenticated' })),
+}));
 
 const storage = window.localStorage as unknown as {
   getItem: ReturnType<typeof vi.fn>;
@@ -31,6 +39,7 @@ describe('PageToolbar', () => {
     storage.setItem.mockReset();
     document.documentElement.removeAttribute('data-theme');
     document.cookie = 'cumpliendo-language=; path=/; max-age=0';
+    vi.mocked(useSession).mockReturnValue({ data: null, status: 'unauthenticated', update: vi.fn() });
     await i18n.changeLanguage('es');
   });
 
@@ -96,5 +105,50 @@ describe('PageToolbar', () => {
     expect(document.documentElement.lang).toBe('en');
     expect(document.cookie).toContain('cumpliendo-language=en');
     expect(itemByText(container, 'English')).toHaveAttribute('selected');
+  });
+
+  it('renders an account dropdown with sign out when authenticated', () => {
+    vi.mocked(useSession).mockReturnValue({
+      data: { user: { name: 'Ana García', email: 'ana@example.com' }, expires: new Date().toISOString() },
+      status: 'authenticated',
+      update: vi.fn(),
+    });
+
+    const { container } = render(<PageToolbar />);
+
+    const triggers = container.querySelectorAll('lt-dropdown > lt-button');
+    expect(triggers).toHaveLength(3);
+
+    const accountTrigger = triggers[2];
+    expect(accountTrigger.textContent).toContain('ana@example.com');
+
+    const items = container.querySelectorAll('lt-dropdown-item');
+    const signOutItem = Array.from(items).find(
+      el => el.textContent?.trim() === 'Cerrar sesión'
+    );
+    expect(signOutItem).toBeDefined();
+  });
+
+  it('calls signOut when the sign out item is selected', () => {
+    vi.mocked(useSession).mockReturnValue({
+      data: { user: { email: 'ana@example.com' }, expires: new Date().toISOString() },
+      status: 'authenticated',
+      update: vi.fn(),
+    });
+
+    const { container } = render(<PageToolbar />);
+
+    const triggers = container.querySelectorAll('lt-dropdown > lt-button');
+    const accountTrigger = triggers[2] as HTMLElement;
+    accountTrigger.click();
+
+    const items = container.querySelectorAll('lt-dropdown-item');
+    const signOutItem = Array.from(items).find(
+      el => el.textContent?.trim() === 'Cerrar sesión'
+    );
+    expect(signOutItem).toBeDefined();
+
+    selectItem(signOutItem!);
+    expect(signOut).toHaveBeenCalledWith({ callbackUrl: '/' });
   });
 });

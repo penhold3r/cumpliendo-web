@@ -7,6 +7,9 @@ const signIn = vi.fn();
 
 vi.mock('next-auth/react', () => ({
   signIn: (...args: unknown[]) => signIn(...args),
+  signOut: vi.fn(),
+  SessionProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  useSession: vi.fn(() => ({ data: null, status: 'unauthenticated', update: vi.fn() })),
 }));
 
 /**

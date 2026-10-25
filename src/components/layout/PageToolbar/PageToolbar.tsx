@@ -1,7 +1,9 @@
 'use client';
 
+import { signOut } from 'next-auth/react';
 import { useLayoutEffect, useState } from 'react';
 import { Button, Dropdown, DropdownItem, Icon } from '@latty-ds/react';
+import { useAuth } from '@/context/AuthContext';
 import {
   DEFAULT_LANGUAGE,
   isAppLanguage,
@@ -39,6 +41,7 @@ const LANGUAGE_CODES: Record<AppLanguage, string> = { es: 'ES', en: 'EN' };
  */
 export function PageToolbar() {
   const { t, i18n } = useTranslation();
+  const { user, isAuthenticated, isLoading } = useAuth();
   const [themeMode, setThemeModeState] = useState<ThemeMode>(readThemeMode);
 
   // Re-apply after mount: the inline <head> script already ran, but this keeps
@@ -57,6 +60,10 @@ export function PageToolbar() {
 
   const chooseLanguage = (value: AppLanguage) => {
     void setAppLanguage(value);
+  };
+
+  const handleSignOut = () => {
+    void signOut({ callbackUrl: '/' });
   };
 
   return (
@@ -105,6 +112,25 @@ export function PageToolbar() {
           </DropdownItem>
         ))}
       </Dropdown>
+
+      {isAuthenticated && !isLoading && (
+        <Dropdown placement="bottom-end">
+          <Button
+            slot="trigger"
+            variant="neutral"
+            appearance="outlined"
+            size="sm"
+            iconStart="user"
+            aria-label={`${t('profile.account')}: ${user?.email ?? user?.name ?? t('profile.account')}`}
+          >
+            {user?.email ?? user?.name}
+          </Button>
+          <DropdownItem onSelect={handleSignOut}>
+            <Icon name="log-out" size="sm" />
+            {t('profile.signOut')}
+          </DropdownItem>
+        </Dropdown>
+      )}
     </div>
   );
 }
