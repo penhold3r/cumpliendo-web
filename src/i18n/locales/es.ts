@@ -646,8 +646,11 @@ export const es = {
   profile: {
     account: 'Cuenta',
     bestStreak: 'Mejor racha',
+    email: 'Correo electrónico',
+    lastLogin: 'Último acceso',
     language: 'Idioma',
     languageHint: 'Sistema usa el idioma del teléfono.',
+    memberSince: 'Miembro desde',
     preferences: 'Preferencias',
     sessions: 'Sesiones',
     signOut: 'Cerrar sesión',
@@ -666,6 +669,7 @@ export const es = {
     unitsHint: 'Cómo se muestran e ingresan los pesos.',
     unitsImperial: 'Imperial (lb)',
     unitsMetric: 'Métrico (kg)',
+    userId: 'ID de usuario',
     version: 'Versión {{name}} ({{build}})',
     versionWithUpdate:
       'Versión {{name}} ({{build}}) · actualización {{bundle}}',
