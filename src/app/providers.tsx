@@ -1,21 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
 import { SessionProvider } from 'next-auth/react';
+import { SettingsProvider } from '@/context/SettingsContext';
+import { WorkoutProvider } from '@/context/WorkoutContext';
 
-import '@latty-ds/tokens/tokens.css';
-import '@latty-ds/tokens/semantic.css';
-import '@latty-ds/web/css/latty.css';
-import '@latty-ds/web';
-import '@latty-ds/icons';
-import { initLattyTheme } from '@/theme/lattyConfig';
-import { registerCumpliendoIcons } from '@/theme/icons';
-
+/**
+ * Composes all Cumpliendo context providers in the correct order:
+ * 1. SessionProvider (NextAuth) — auth session
+ * 2. SettingsProvider — units, theme, language
+ * 3. WorkoutProvider — exercises, routines, history, stats, active workout
+ */
 export function Providers({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    initLattyTheme();
-    registerCumpliendoIcons();
-  }, []);
-
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <SettingsProvider>
+        <WorkoutProvider>{children}</WorkoutProvider>
+      </SettingsProvider>
+    </SessionProvider>
+  );
 }
