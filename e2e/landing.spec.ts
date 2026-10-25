@@ -143,4 +143,20 @@ test.describe('landing page', () => {
     expect(bodyLoaded).toBe(true);
     expect(headingLoaded).toBe(true);
   });
+
+  test('shows only theme and language dropdowns when unauthenticated', async ({
+    page,
+  }) => {
+    await page.goto('/');
+
+    // Unauthenticated: only theme + language dropdowns, no account dropdown.
+    const dropdownTriggers = page.locator('lt-dropdown > lt-button');
+    await expect(dropdownTriggers).toHaveCount(2);
+
+    // No account/email text or sign-out option should be present.
+    await expect(page.getByText(/@example\.com/)).not.toBeVisible();
+    await expect(
+      page.getByRole('button', { name: /Cerrar sesión|Sign out/ })
+    ).not.toBeVisible();
+  });
 });
