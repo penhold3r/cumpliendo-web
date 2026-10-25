@@ -159,4 +159,39 @@ test.describe('landing page', () => {
       page.getByRole('button', { name: /Cerrar sesión|Sign out/ })
     ).not.toBeVisible();
   });
+
+  test('redirects unauthenticated users from /home to /', async ({ page }) => {
+    // Middleware should bounce unauthenticated users off /home back to /.
+    await page.goto('/home');
+
+    await expect(page).toHaveURL('/');
+    await expect(
+      page.locator('lt-button', { hasText: 'Google' })
+    ).toBeVisible();
+  });
+
+  test('clicking Continue with Google initiates the OAuth flow', async ({
+    page,
+  }) => {
+    // Intercept Google's OAuth authorization page so the test doesn't leave
+    // the app or require real user interaction.
+    await page.route(
+      'https://accounts.google.com/o/oauth2/v2/auth**',
+      async route => {
+        await route.fulfill({
+          status: 200,
+          contentType: 'text/html',
+          body: '<html><body>Google OAuth (mocked)</body></html>',
+        });
+      },
+    );
+
+    await page.goto('/');
+
+    const button = page.locator('lt-button', { hasText: 'Google' });
+    await button.click();
+
+    // Clicking the CTA should redirect to Google's OAuth endpoint.
+    await expect(page).toHaveURL(/accounts\.google\.com/);
+  });
 });
