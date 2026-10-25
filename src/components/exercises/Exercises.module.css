@@ -1,0 +1,91 @@
+.page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lt-spacing-8) var(--lt-spacing-6);
+  background: var(--lt-bg-subtle);
+}
+
+.shell {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-6);
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--lt-text-muted);
+  margin: 0;
+}
+
+.list {
+  width: 100%;
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+/* lt-surface draws its border on the shadow `.surface` element, so padding
+   has to live on this inner wrapper rather than on the host. */
+.card {
+  --lt-surface-bg: var(--lt-bg-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-6);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--lt-spacing-2);
+}
+
+.name {
+  margin: 0;
+}
+
+.category {
+  font-size: var(--lt-text-label-font-size);
+  color: var(--lt-text-muted);
+  white-space: nowrap;
+}
+
+.description {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+  margin-top: var(--lt-spacing-1);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+  font-size: var(--lt-text-body-sm-font-size);
+  color: var(--lt-text-muted);
+}

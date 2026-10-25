@@ -368,6 +368,10 @@ export const es = {
     'ex-piernas-split-squat': 'Sentadilla Dividida (Split Squat)',
     'ex-piernas-sumo-squat': 'Sentadilla Sumo (Sumo Squat)',
     'ex-piernas-walking-lunge': 'Estocadas Caminando (Walking Lunges)',
+    title: 'Ejercicios',
+    subtitle: 'Explora tu biblioteca de ejercicios. Filtra por músculo, equipamiento y tipo de entrenamiento.',
+    filterBy: 'Filtrar por',
+    noExercises: 'No hay ejercicios que coincidan con tus filtros',
   },
   filters: {
     clear: 'Limpiar',

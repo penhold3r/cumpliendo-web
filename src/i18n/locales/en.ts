@@ -355,6 +355,10 @@ export const en: Translations = {
     'ex-piernas-split-squat': 'Split Squat',
     'ex-piernas-sumo-squat': 'Sumo Squat',
     'ex-piernas-walking-lunge': 'Walking Lunges',
+    title: 'Exercises',
+    subtitle: 'Browse your exercise library. Filter by muscle, equipment and workout type.',
+    filterBy: 'Filter by',
+    noExercises: 'No exercises match your filters',
   },
   filters: {
     clear: 'Clear',
