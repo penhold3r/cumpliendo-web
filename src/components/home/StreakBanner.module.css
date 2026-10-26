@@ -1,0 +1,36 @@
+.banner {
+  --lt-surface-bg: var(--lt-bg-primary-subtle);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-4);
+}
+
+.streakInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+}
+
+.current {
+  margin: 0;
+  color: var(--lt-text-primary);
+  font-weight: 700;
+  font-size: var(--lt-text-display-sm-font-size);
+  line-height: 1;
+}
+
+.label {
+  margin: 0;
+  color: var(--lt-text-primary);
+}
+
+.best {
+  margin: 0;
+  color: var(--lt-text-primary);
+  opacity: 0.8;
+}
