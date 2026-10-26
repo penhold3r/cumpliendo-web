@@ -1,0 +1,13 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--lt-bg-subtle);
+  padding: var(--lt-spacing-6);
+}

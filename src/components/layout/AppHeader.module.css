@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 var(--lt-spacing-6);
+  background: var(--lt-bg-default);
+  border-bottom: 1px solid var(--lt-border-default);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+}
+
+.logo {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: var(--lt-spacing-4);
+  align-items: center;
+}
+
+.navItem {
+  padding: var(--lt-spacing-2) var(--lt-spacing-3);
+  border-radius: var(--lt-border-radius);
+  cursor: pointer;
+  color: var(--lt-text-muted);
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.navItem[aria-current='page'] {
+  color: var(--lt-text-primary);
+  background: var(--lt-bg-primary-subtle);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+}
+
+.accountButton {
+  color: var(--lt-text-primary);
+}
