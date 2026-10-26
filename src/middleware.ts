@@ -17,12 +17,13 @@ export default auth((req) => {
   const isOnRoutines = req.nextUrl.pathname === "/routines";
   const isOnExercises = req.nextUrl.pathname === "/exercises";
   const isOnHistory = req.nextUrl.pathname === "/history";
+  const isOnTrain = req.nextUrl.pathname === "/train";
 
   if (isLoggedIn && isOnLanding) {
     return NextResponse.redirect(new URL("/home", req.nextUrl));
   }
 
-  if (!isLoggedIn && (isOnHome || isOnProfile || isOnRoutines || isOnExercises || isOnHistory)) {
+  if (!isLoggedIn && (isOnHome || isOnProfile || isOnRoutines || isOnExercises || isOnHistory || isOnTrain)) {
     return NextResponse.redirect(new URL("/", req.nextUrl));
   }
 
@@ -30,5 +31,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/", "/home", "/profile", "/routines", "/exercises", "/history"],
+  matcher: ["/", "/home", "/profile", "/routines", "/exercises", "/history", "/train"],
 };

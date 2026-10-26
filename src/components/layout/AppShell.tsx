@@ -20,15 +20,6 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   const [activeTab, setActiveTab] = useState('home');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div className={styles.shell}>

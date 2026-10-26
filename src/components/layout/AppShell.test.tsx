@@ -43,7 +43,7 @@ describe('AppShell', () => {
       refresh: vi.fn(),
       replace: vi.fn(),
       prefetch: vi.fn(),
-    } as any);
+    } as unknown as ReturnType<typeof useRouter>);
 
     render(<AppShell />);
 

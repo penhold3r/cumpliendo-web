@@ -1,0 +1,86 @@
+.hub {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-6);
+  padding: var(--lt-spacing-6);
+  min-height: 100dvh;
+  background: var(--lt-bg-subtle);
+}
+
+.hubHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--lt-spacing-4);
+}
+
+@media (min-width: 48rem) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-6);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+}
+
+.cardTitle {
+  margin: 0;
+}
+
+.cardDescription {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.activeWorkout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-6);
+  padding: var(--lt-spacing-6);
+  min-height: 100dvh;
+  background: var(--lt-bg-subtle);
+}
+
+.exercises {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+.exerciseCard {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}

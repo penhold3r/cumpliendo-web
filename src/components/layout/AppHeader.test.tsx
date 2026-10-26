@@ -46,7 +46,7 @@ describe('AppHeader', () => {
       refresh: vi.fn(),
       replace: vi.fn(),
       prefetch: vi.fn(),
-    } as any);
+    } as unknown as ReturnType<typeof useRouter>);
 
     const { container } = render(<AppHeader />);
 
