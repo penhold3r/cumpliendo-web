@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--lt-spacing-4);
+}
+
+.tile {
+  background: var(--lt-bg-default);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  padding: var(--lt-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-1);
+}
+
+.label {
+  color: var(--lt-text-muted);
+}
+
+.value {
+  margin: 0;
+  color: var(--lt-text-default);
+}
