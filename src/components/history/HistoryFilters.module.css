@@ -1,0 +1,61 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-4);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+}
+
+.filterLabel {
+  color: var(--lt-text-muted);
+  font-weight: 600;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lt-spacing-2);
+}
+
+.chip {
+  padding: var(--lt-spacing-1) var(--lt-spacing-2);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: var(--lt-bg-default);
+  color: var(--lt-text-muted);
+  cursor: pointer;
+  font-size: var(--lt-text-caption-font-size);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.chip:hover {
+  background: var(--lt-bg-subtle);
+  color: var(--lt-text-default);
+}
+
+.chipActive {
+  background: var(--lt-bg-primary-subtle);
+  color: var(--lt-text-primary);
+  border-color: var(--lt-text-primary);
+}
+
+.clearButton {
+  align-self: flex-start;
+  padding: var(--lt-spacing-1) var(--lt-spacing-3);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: transparent;
+  color: var(--lt-text-muted);
+  cursor: pointer;
+  font-size: var(--lt-text-caption-font-size);
+}
+
+.clearButton:hover {
+  background: var(--lt-bg-subtle);
+  color: var(--lt-text-default);
+}
