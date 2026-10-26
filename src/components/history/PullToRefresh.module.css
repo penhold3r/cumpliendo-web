@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+.refreshBar {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+  padding: var(--lt-spacing-2);
+}
+
+.refreshButton {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: transparent;
+  color: var(--lt-text-muted);
+  cursor: pointer;
+  font-size: var(--lt-text-body-font-size);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.refreshButton:hover {
+  background: var(--lt-bg-subtle);
+  color: var(--lt-text-default);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
