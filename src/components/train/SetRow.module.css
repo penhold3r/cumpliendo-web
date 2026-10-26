@@ -1,0 +1,57 @@
+.row {
+  display: grid;
+  grid-template-columns: 3rem 1fr 1fr 3rem;
+  gap: var(--lt-spacing-2);
+  align-items: center;
+  padding: var(--lt-spacing-2);
+  border-bottom: 1px solid var(--lt-border-default);
+}
+
+.row.completed {
+  opacity: 0.7;
+}
+
+.setNumber {
+  font-weight: 600;
+  text-align: center;
+  color: var(--lt-text-muted);
+}
+
+.input {
+  padding: var(--lt-spacing-1) var(--lt-spacing-2);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: var(--lt-bg-default);
+  color: var(--lt-text-default);
+  text-align: center;
+  font-size: var(--lt-text-body-sm-font-size);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--lt-text-primary);
+}
+
+.completeButton {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--lt-text-body-font-size);
+  color: var(--lt-text-muted);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.completeButton.completed {
+  background: var(--lt-bg-primary-subtle);
+  color: var(--lt-text-primary);
+  border-color: var(--lt-text-primary);
+}
+
+.completeButton:hover {
+  background: var(--lt-bg-subtle);
+}
