@@ -1,5 +1,6 @@
 import React from 'react';
 import { STORAGE_KEYS } from '@/constants';
+import { THEME_STORAGE_KEY } from '@/theme/themePreference';
 import { getDeviceLanguage, i18n } from '@/i18n';
 import { type WeightUnits } from '@/utils/units';
 import { DEFAULT_SETTINGS } from './SettingsContext.state';
@@ -61,13 +62,18 @@ export function SettingsProvider({
     }
   }, [settings.language]);
 
-  // Apply theme mode to <html> data-theme attribute.
+  // Apply theme mode to <html> data-theme attribute and sync to the
+  // bootstrap storage key so the next page load picks up the choice
+  // before React hydrates (prevents a flash of the wrong palette).
   React.useEffect(() => {
     if (settings.themeMode === 'system') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', settings.themeMode);
     }
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, settings.themeMode);
+    } catch { /* storage disabled */ }
   }, [settings.themeMode]);
 
   const update = React.useCallback((patch: Partial<AppSettings>) => {

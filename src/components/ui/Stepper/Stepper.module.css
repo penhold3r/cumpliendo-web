@@ -1,0 +1,20 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+  user-select: none;
+}
+
+.sm {
+  gap: var(--lt-spacing-0);
+}
+
+.value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.sm .value {
+  min-width: 2rem;
+}

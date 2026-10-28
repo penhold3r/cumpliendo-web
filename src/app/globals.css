@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 /*
  * Fonts (Inter for body, Funnel Display for headings) are loaded from Google
  * Fonts through Latty's `configure()` / `createStyleSheet()` font tokens — see
@@ -10,8 +8,16 @@
  * applied by @latty-ds/web/css/latty.css. Do not override them here or the
  * theme stops responding to configure().
  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100%;
 }
 
@@ -33,4 +39,71 @@ body {
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------------------
+ * Cumpliendo Blue Grey palette overrides
+ *
+ * The Android app uses Material Blue Grey for ALL neutrals (never pure
+ * black / white / grey). We replace Latty's neutral primitives so every
+ * semantic token that references them automatically picks up the tint.
+ * Values sourced from DEV/cumpliendo/src/theme/materialTheme.ts.
+ * ------------------------------------------------------------------------- */
+
+/* ---- Light mode ---- */
+:root,
+:root[data-theme="light"],
+[data-theme="light"] {
+  --lt-color-white: #F2F4F5;
+  --lt-color-black: #263238;
+  --lt-color-neutral-50: #FAFBFB;
+  --lt-color-neutral-100: #ECEFF1;
+  --lt-color-neutral-200: #CFD8DC;
+  --lt-color-neutral-300: #B0BEC5;
+  --lt-color-neutral-400: #90A4AE;
+  --lt-color-neutral-500: #78909C;
+  --lt-color-neutral-600: #546E7A;
+  --lt-color-neutral-700: #455A64;
+  --lt-color-neutral-800: #37474F;
+  --lt-color-neutral-900: #263238;
+
+  --lt-surface-bg: #FFFFFF;
+}
+
+/* ---- Dark mode ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --lt-color-white: #ECEFF1;
+    --lt-color-black: #0D1518;
+    --lt-color-neutral-50: #ECEFF1;
+    --lt-color-neutral-100: #ECEFF1;
+    --lt-color-neutral-200: #CFD8DC;
+    --lt-color-neutral-300: #B0BEC5;
+    --lt-color-neutral-400: #B0BEC5;
+    --lt-color-neutral-500: #78909C;
+    --lt-color-neutral-600: #546E7A;
+    --lt-color-neutral-700: #37474F;
+    --lt-color-neutral-800: #1F292E;
+    --lt-color-neutral-900: #192024;
+
+    --lt-surface-bg: #1F292E;
+  }
+}
+
+:root[data-theme="dark"],
+[data-theme="dark"] {
+  --lt-color-white: #ECEFF1;
+  --lt-color-black: #0D1518;
+  --lt-color-neutral-50: #ECEFF1;
+  --lt-color-neutral-100: #ECEFF1;
+  --lt-color-neutral-200: #CFD8DC;
+  --lt-color-neutral-300: #B0BEC5;
+  --lt-color-neutral-400: #B0BEC5;
+  --lt-color-neutral-500: #78909C;
+  --lt-color-neutral-600: #546E7A;
+  --lt-color-neutral-700: #37474F;
+  --lt-color-neutral-800: #1F292E;
+  --lt-color-neutral-900: #192024;
+
+  --lt-surface-bg: #1F292E;
 }

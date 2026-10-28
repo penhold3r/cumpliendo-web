@@ -1,0 +1,137 @@
+.page {
+  padding: var(--lt-spacing-6);
+  max-width: 56rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--lt-spacing-5);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+    align-items: start;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+.card {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-5);
+}
+
+/* ── Identity ── */
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  text-align: center;
+}
+
+.name {
+  margin: 0;
+}
+
+.email {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.syncedBadge {
+  margin-top: var(--lt-spacing-1);
+}
+
+/* ── Stats grid ── */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--lt-spacing-4);
+  text-align: center;
+}
+
+.statCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+}
+
+.statValue {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  color: var(--lt-text-muted);
+}
+
+/* ── Preferences ── */
+
+.sectionTitle {
+  margin: 0;
+}
+
+.prefRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+}
+
+@media (min-width: 420px) {
+  .prefRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.prefLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.prefHint {
+  color: var(--lt-text-muted);
+}
+
+.chipGroup {
+  display: flex;
+  gap: var(--lt-spacing-2);
+  flex-wrap: wrap;
+}
+
+/* ── Account info ── */
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--lt-spacing-3);
+}
+
+.infoLabel {
+  color: var(--lt-text-muted);
+  white-space: nowrap;
+}
+

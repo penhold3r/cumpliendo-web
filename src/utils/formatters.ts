@@ -88,32 +88,4 @@ export const formatDateLong = (dateInput: Date | string): string => {
   }
 };
 
-/** Exercise icon: equipment takes precedence; falls back to primary muscle group. */
-export const getExerciseIcon = (
-  category?: string,
-  equipment?: string,
-): string => {
-  if (equipment === 'Bicicleta fija') return 'bike';
-  if (
-    equipment === 'Máquina de remo' ||
-    equipment === 'Máquina de ski' ||
-    equipment === 'Ergómetro'
-  )
-    return 'run';
-  if (equipment === 'Soga') return 'jump-rope';
-  if (equipment === 'Kettlebell') return 'kettlebell';
-  if (equipment === 'Barra') return 'weight-lifter';
-  if (equipment === 'Mancuernas') return 'dumbbell';
-  // Legacy categories (disciplines) possibly present in older saved data
-  if (category === 'Funcional') return 'kettlebell';
-  if (category === 'CrossFit') return 'weight-lifter';
-  if (category === 'HIIT') return 'lightning-bolt';
-  if (category === 'Cardio') return 'run';
-  if (category === 'Core') return 'human';
-  if (category === 'Piernas' || category === 'Glúteos') return 'run-fast';
-  if (category === 'Pecho' || category === 'Brazos' || category === 'Hombros')
-    return 'arm-flex';
-  if (category === 'Espalda') return 'human-handsup';
-  if (category === 'Cuerpo Completo') return 'human-handsup';
-  return 'dumbbell';
-};
+export { getExerciseIcon } from './exerciseIcon';

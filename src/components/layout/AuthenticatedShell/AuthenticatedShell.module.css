@@ -1,0 +1,33 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1;
+  background: var(--lt-bg-subtle);
+}
+
+/* Desktop: header nav visible, bottom nav hidden */
+.headerNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .headerNav {
+    display: block;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+}
+
+/* Mobile: bottom padding for fixed bottom nav */
+@media (max-width: 767px) {
+  .main {
+    padding-bottom: 64px;
+  }
+}

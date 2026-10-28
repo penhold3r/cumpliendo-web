@@ -1,0 +1,153 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-6);
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--lt-spacing-4);
+  flex-wrap: wrap;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--lt-text-muted);
+  margin: 0;
+}
+
+/* ── Toolbar ── */
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}
+
+.searchField {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lt-spacing-2);
+  align-items: center;
+}
+
+.activeFilters {
+  padding: var(--lt-spacing-1) 0;
+}
+
+.activeFiltersText {
+  color: var(--lt-text-muted);
+  margin: 0;
+}
+
+/* ── Exercise list ── */
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exerciseRow {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-3) var(--lt-spacing-3);
+  border-bottom: 1px solid var(--lt-border-default);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  border-radius: var(--lt-border-radius);
+  margin-inline: calc(-1 * var(--lt-spacing-3));
+}
+
+.exerciseRow:last-child {
+  border-bottom: none;
+}
+
+.exerciseRow:hover {
+  background: var(--lt-bg-subtle);
+}
+
+.exerciseIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--lt-bg-primary-subtle);
+  color: var(--lt-text-primary);
+  flex-shrink: 0;
+}
+
+.exerciseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.exerciseName {
+  margin: 0;
+}
+
+.exerciseMeta {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+/* ── Empty states ── */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-8) var(--lt-spacing-6);
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--lt-text-muted);
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  margin: 0;
+}
+
+.emptyBody {
+  color: var(--lt-text-muted);
+  margin: 0;
+  max-width: 28rem;
+}
+
+.emptySearch {
+  padding: var(--lt-spacing-6);
+  text-align: center;
+}
+
+.emptySearchText {
+  color: var(--lt-text-muted);
+  margin: 0;
+}

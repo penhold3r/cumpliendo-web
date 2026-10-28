@@ -42,6 +42,14 @@ export const en: Translations = {
       label: 'Warm-up',
     },
   },
+  nav: {
+    exercises: 'Exercises',
+    history: 'History',
+    home: 'Home',
+    main: 'Main navigation',
+    routines: 'Routines',
+    train: 'Train',
+  },
   common: {
     back: 'Back',
     cancel: 'Cancel',
@@ -194,6 +202,7 @@ export const en: Translations = {
       hypertrophy: 'Hypertrophy',
       mobility: 'Mobility',
       endurance: 'Endurance',
+      crossfit: 'CrossFit',
       // Legacy Spanish keys fallback
       Fuerza: 'Strength',
       Funcional: 'Functional',
@@ -505,6 +514,7 @@ export const en: Translations = {
     new: 'New Exercise',
     noMatches:
       'No matches for "{{query}}". You can create it right now or clear the search.',
+    results: 'results',
     save: 'Save Exercise',
     saveChanges: 'Save Changes',
     scopeAll: 'All ({{n}})',
@@ -637,6 +647,7 @@ export const en: Translations = {
     memberSince: 'Member since',
     preferences: 'Preferences',
     sessions: 'Sessions',
+    streak: 'Streak',
     signOut: 'Sign out',
     signOutBody:
       'Data saved on this device will be removed. Your workouts and routines stay in the cloud and come back when you sign in.',
@@ -699,6 +710,7 @@ export const en: Translations = {
     moveUp: 'Move exercise up',
     nameLabel: 'Routine name *',
     namePlaceholder: 'e.g. Push Day, Upper Strength, WOD...',
+    newTitle: 'New Routine',
     perSide: 'Reps per side',
     range: 'Range',
     remove: 'Remove exercise from routine',
@@ -707,6 +719,7 @@ export const en: Translations = {
     repsMaxFor: 'Max reps for {{name}}',
     repsMin: 'Reps (min)',
     saveChanges: 'Save Changes',
+    saveNew: 'Create',
     sets: 'Sets',
     setsFor: 'Sets for {{name}}',
     setsMaxFor: 'Max sets for {{name}}',

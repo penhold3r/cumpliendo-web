@@ -1,19 +1,9 @@
 .toolbar {
-  position: absolute;
-  top: var(--lt-spacing-6);
-  right: var(--lt-spacing-6);
-  z-index: 1;
   display: flex;
   align-items: center;
   gap: var(--lt-spacing-2);
+  align-self: flex-end;
+  margin-bottom: var(--lt-spacing-2);
 
-  /* Let the triggers size to their content instead of the 88px button floor. */
   --lt-button-min-width: 0;
-}
-
-@media (max-width: 30rem) {
-  .toolbar {
-    top: var(--lt-spacing-4);
-    right: var(--lt-spacing-4);
-  }
 }

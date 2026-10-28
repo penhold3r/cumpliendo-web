@@ -1,0 +1,170 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-6);
+  background: var(--lt-bg-default);
+  border-radius: var(--lt-border-radius);
+  max-width: 32rem;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+}
+
+.closeButton {
+  padding: var(--lt-spacing-2) var(--lt-spacing-3);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: transparent;
+  color: var(--lt-text-muted);
+  cursor: pointer;
+  font-size: var(--lt-text-body-sm-font-size);
+  white-space: nowrap;
+}
+
+.closeButton:hover {
+  background: var(--lt-bg-subtle);
+  color: var(--lt-text-default);
+}
+
+.searchInput {
+  padding: var(--lt-spacing-2) var(--lt-spacing-3);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  background: var(--lt-bg-default);
+  color: var(--lt-text-default);
+  font-size: var(--lt-text-body-sm-font-size);
+  flex-shrink: 0;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--lt-text-primary);
+}
+
+.list {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.empty {
+  color: var(--lt-text-muted);
+  padding: var(--lt-spacing-4);
+  text-align: center;
+}
+
+.exerciseRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: var(--lt-spacing-3) var(--lt-spacing-2);
+  border: none;
+  border-bottom: 1px solid var(--lt-border-default);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.exerciseRow:hover {
+  background: var(--lt-bg-subtle);
+}
+
+.exerciseName {
+  color: var(--lt-text-default);
+  font-weight: 500;
+}
+
+.exerciseMeta {
+  color: var(--lt-text-muted);
+}
+
+.equipmentStep {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+.stepLabel {
+  color: var(--lt-text-muted);
+  font-weight: 600;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lt-spacing-2);
+}
+
+.chip {
+  padding: var(--lt-spacing-1) var(--lt-spacing-3);
+  border: 1px solid var(--lt-border-default);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lt-text-default);
+  cursor: pointer;
+  font-size: var(--lt-text-body-sm-font-size);
+}
+
+.chip:hover {
+  background: var(--lt-bg-subtle);
+}
+
+.chipSelected {
+  background: var(--lt-bg-primary-subtle);
+  border-color: var(--lt-text-primary);
+  color: var(--lt-text-primary);
+  font-weight: 500;
+}
+
+.showAllButton {
+  padding: var(--lt-spacing-1) 0;
+  border: none;
+  background: transparent;
+  color: var(--lt-text-primary);
+  cursor: pointer;
+  font-size: var(--lt-text-body-sm-font-size);
+  text-align: left;
+}
+
+.showAllButton:hover {
+  text-decoration: underline;
+}
+
+.confirmRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--lt-spacing-2);
+}

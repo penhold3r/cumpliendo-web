@@ -36,33 +36,42 @@ describe('formatters', () => {
 
   describe('getExerciseIcon', () => {
     it('returns bike for stationary bike', () => {
-      expect(getExerciseIcon('cardio', 'Bicicleta fija')).toBe('bike');
+      expect(getExerciseIcon('stationary_bike', 'legs')).toBe('bike');
     });
 
-    it('returns run for rowing/ski/ergometer', () => {
-      expect(getExerciseIcon('cardio', 'Máquina de remo')).toBe('run');
-      expect(getExerciseIcon('cardio', 'Máquina de ski')).toBe('run');
-      expect(getExerciseIcon('cardio', 'Ergómetro')).toBe('run');
+    it('returns rowing for rowing machine', () => {
+      expect(getExerciseIcon('rowing_machine', 'back')).toBe('rowing');
+    });
+
+    it('returns run for treadmill/elliptical', () => {
+      expect(getExerciseIcon('treadmill', 'legs')).toBe('run');
+      expect(getExerciseIcon('elliptical', 'legs')).toBe('run');
     });
 
     it('returns jump-rope for jump rope', () => {
-      expect(getExerciseIcon('cardio', 'Soga')).toBe('jump-rope');
+      expect(getExerciseIcon('jump_rope', 'legs')).toBe('jump-rope');
     });
 
     it('returns kettlebell for kettlebell', () => {
-      expect(getExerciseIcon('legs', 'Kettlebell')).toBe('kettlebell');
+      expect(getExerciseIcon('kettlebell', 'legs')).toBe('kettlebell');
     });
 
     it('returns weight-lifter for barbell', () => {
-      expect(getExerciseIcon('chest', 'Barra')).toBe('weight-lifter');
+      expect(getExerciseIcon('barbell', 'chest')).toBe('weight-lifter');
     });
 
     it('returns dumbbell for dumbbells', () => {
-      expect(getExerciseIcon('arms', 'Mancuernas')).toBe('dumbbell');
+      expect(getExerciseIcon('dumbbells', 'arms')).toBe('dumbbell');
     });
 
-    it('returns default dumbbell for unknown', () => {
-      expect(getExerciseIcon('chest', 'unknown')).toBe('dumbbell');
+    it('falls back to category icon when equipment is unknown', () => {
+      expect(getExerciseIcon('unknown', 'chest')).toBe('arm-flex');
+      expect(getExerciseIcon('unknown', 'legs')).toBe('run-fast');
+      expect(getExerciseIcon('unknown', 'core')).toBe('human');
+    });
+
+    it('returns default dumbbell for unknown equipment and category', () => {
+      expect(getExerciseIcon('unknown', 'unknown')).toBe('dumbbell');
     });
   });
 });

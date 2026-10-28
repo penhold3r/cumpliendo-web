@@ -40,6 +40,14 @@ export const es = {
       label: 'Precalentamiento',
     },
   },
+  nav: {
+    exercises: 'Ejercicios',
+    history: 'Historial',
+    home: 'Inicio',
+    main: 'Navegación principal',
+    routines: 'Rutinas',
+    train: 'Entrenar',
+  },
   common: {
     back: 'Volver',
     cancel: 'Cancelar',
@@ -192,6 +200,7 @@ export const es = {
       hypertrophy: 'Hipertrofia',
       mobility: 'Movilidad',
       endurance: 'Resistencia',
+      crossfit: 'CrossFit',
       // Legacy Spanish keys fallback
       Fuerza: 'Fuerza',
       Funcional: 'Funcional',
@@ -522,6 +531,7 @@ export const es = {
     new: 'Nuevo Ejercicio',
     noMatches:
       'No hay coincidencias para "{{query}}". Puedes crearlo ahora mismo o limpiar la búsqueda.',
+    results: 'resultados',
     save: 'Guardar Ejercicio',
     saveChanges: 'Guardar Cambios',
     scopeAll: 'Todos ({{n}})',
@@ -657,6 +667,7 @@ export const es = {
     memberSince: 'Miembro desde',
     preferences: 'Preferencias',
     sessions: 'Sesiones',
+    streak: 'Racha',
     signOut: 'Cerrar sesión',
     signOutBody:
       'Se borrarán los datos guardados en este dispositivo. Tus entrenamientos y rutinas siguen en la nube y vuelven al iniciar sesión.',
@@ -720,6 +731,7 @@ export const es = {
     moveUp: 'Mover ejercicio hacia arriba',
     nameLabel: 'Nombre de la rutina *',
     namePlaceholder: 'Ej: Push Day, Torso Fuerza, WOD...',
+    newTitle: 'Nueva Rutina',
     perSide: 'Reps por lado',
     range: 'Rango',
     remove: 'Quitar ejercicio de la rutina',
@@ -728,6 +740,7 @@ export const es = {
     repsMaxFor: 'Reps máximas para {{name}}',
     repsMin: 'Reps (mín.)',
     saveChanges: 'Guardar Cambios',
+    saveNew: 'Crear',
     sets: 'Series',
     setsFor: 'Series para {{name}}',
     setsMaxFor: 'Series máximas para {{name}}',

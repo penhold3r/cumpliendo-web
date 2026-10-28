@@ -1,0 +1,282 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--lt-color-surface);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--lt-space-3) var(--lt-space-4);
+  border-bottom: 1px solid var(--lt-color-border);
+  position: sticky;
+  top: 0;
+  background: var(--lt-color-surface);
+  z-index: 10;
+}
+
+.headerTitle {
+  flex: 1;
+  text-align: center;
+}
+
+/* ── Body ── */
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-5);
+  padding: var(--lt-space-4);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Section containers ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Date row ── */
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-space-2);
+  flex-wrap: wrap;
+}
+
+.dateDisplay {
+  flex: 1;
+  text-align: center;
+  font-weight: var(--lt-font-weight-medium);
+}
+
+/* ── Chips (type/format/structure) ── */
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lt-space-2);
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--lt-color-border);
+  border-radius: var(--lt-radius-full);
+  padding: var(--lt-space-1) var(--lt-space-3);
+  background: transparent;
+  color: var(--lt-color-on-surface);
+  font: var(--lt-font-body-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.chip:hover {
+  background: var(--lt-color-surface-hover);
+}
+
+.chipSelected {
+  background: var(--lt-color-primary);
+  color: var(--lt-color-on-primary);
+  border-color: var(--lt-color-primary);
+}
+
+/* ── Circuit block ── */
+.circuitBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-3);
+  padding: var(--lt-space-3);
+  border: 1px solid var(--lt-color-border);
+  border-radius: var(--lt-radius-md);
+}
+
+.circuitHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circuitTimingRow {
+  display: flex;
+  gap: var(--lt-space-3);
+  flex-wrap: wrap;
+}
+
+.circuitTimingField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-1);
+  flex: 1;
+  min-width: 100px;
+}
+
+.blockTypeGroup {
+  display: flex;
+  gap: var(--lt-space-2);
+}
+
+/* ── Exercise row ── */
+.exerciseRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-2);
+  padding: var(--lt-space-3);
+  border: 1px solid var(--lt-color-border);
+  border-radius: var(--lt-radius-sm);
+}
+
+.exerciseFields {
+  display: flex;
+  gap: var(--lt-space-2);
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-1);
+  min-width: 80px;
+}
+
+.fieldInput {
+  appearance: none;
+  border: 1px solid var(--lt-color-border);
+  border-radius: var(--lt-radius-sm);
+  padding: var(--lt-space-2);
+  background: var(--lt-color-surface);
+  color: var(--lt-color-on-surface);
+  font: var(--lt-font-body-sm);
+  width: 100%;
+}
+
+.fieldInput:focus {
+  outline: 2px solid var(--lt-color-primary);
+  outline-offset: -1px;
+}
+
+/* ── Empty state ── */
+.emptyList {
+  text-align: center;
+  padding: var(--lt-space-6) var(--lt-space-4);
+  color: var(--lt-color-on-surface-variant);
+}
+
+/* ── Metrics summary ── */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--lt-space-2);
+}
+
+.metricCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-space-1);
+  padding: var(--lt-space-3);
+  border: 1px solid var(--lt-color-border);
+  border-radius: var(--lt-radius-sm);
+}
+
+.metricValue {
+  font-weight: var(--lt-font-weight-semibold);
+}
+
+/* ── Calendar dialog ── */
+.calendarOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--lt-space-4);
+}
+
+.calendarDialog {
+  background: var(--lt-color-surface);
+  border-radius: var(--lt-radius-lg);
+  padding: var(--lt-space-4);
+  width: 100%;
+  max-width: 340px;
+}
+
+.calendarNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--lt-space-3);
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--lt-space-1);
+  text-align: center;
+}
+
+.calendarDayLabel {
+  font: var(--lt-font-caption);
+  color: var(--lt-color-on-surface-variant);
+  padding: var(--lt-space-1);
+}
+
+.calendarDay {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: var(--lt-radius-full);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font: var(--lt-font-body-sm);
+  color: var(--lt-color-on-surface);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.calendarDay:hover {
+  background: var(--lt-color-surface-hover);
+}
+
+.calendarDaySelected {
+  background: var(--lt-color-primary);
+  color: var(--lt-color-on-primary);
+}
+
+.calendarDayToday {
+  border: 1px solid var(--lt-color-primary);
+}
+
+/* ── Footer ── */
+.footer {
+  padding: var(--lt-space-3) var(--lt-space-4);
+  border-top: 1px solid var(--lt-color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-space-2);
+  position: sticky;
+  bottom: 0;
+  background: var(--lt-color-surface);
+}
+
+.dangerZone {
+  padding-top: var(--lt-space-4);
+  border-top: 1px solid var(--lt-color-border);
+}

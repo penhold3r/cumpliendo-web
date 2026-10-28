@@ -1,0 +1,46 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+  padding: var(--lt-spacing-6);
+  background: var(--lt-bg-default);
+  border-radius: var(--lt-border-radius);
+  max-width: 24rem;
+  width: 90%;
+}
+
+.title {
+  margin: 0;
+}
+
+.message {
+  color: var(--lt-text-muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--lt-spacing-3);
+  margin-top: var(--lt-spacing-2);
+}
+
+.destructive {
+  --lt-button-bg: var(--lt-bg-error, #ef4444);
+  --lt-button-text: #fff;
+  background: var(--lt-bg-error, #ef4444);
+  color: #fff;
+}
+
+.destructive:hover {
+  opacity: 0.9;
+}

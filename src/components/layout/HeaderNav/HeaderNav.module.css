@@ -1,0 +1,82 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--lt-z-sticky, 20);
+  background: var(--lt-bg-default);
+  box-shadow: var(--lt-elevation-1);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-4);
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 var(--lt-spacing-6);
+  height: 3.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+  text-decoration: none;
+  color: var(--lt-text-default);
+  flex-shrink: 0;
+}
+
+.brandLogo {
+  width: 28px;
+  height: 28px;
+}
+
+.brandName {
+  font-family: var(--lt-typography-fontFamilyDisplay, 'Funnel Display', sans-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.nav {
+  flex: 1;
+  --lt-nav-item-font-size: 0.8125rem;
+}
+
+.trainCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.trainCtaActive {
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+  flex-shrink: 0;
+}
+
+.avatarButton {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: box-shadow 0.15s ease;
+}
+
+.avatarButton:hover {
+  box-shadow: 0 0 0 2px var(--lt-border-primary);
+}
+
+.avatarButton:focus-visible {
+  outline: 2px solid var(--lt-border-primary);
+  outline-offset: 2px;
+}

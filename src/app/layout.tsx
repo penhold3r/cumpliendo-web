@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={DEFAULT_LANGUAGE}
-      className="h-full antialiased"
+      style={{ minHeight: '100%' }}
       suppressHydrationWarning
     >
       <head>
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* SSR-injected Latty tokens so the first paint uses the Cumpliendo palette. */}
         <style id="lt-tokens" dangerouslySetInnerHTML={{ __html: lattyStyleSheet }} />
       </head>
-      <body className="min-h-full">
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

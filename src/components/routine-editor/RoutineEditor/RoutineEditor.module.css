@@ -1,0 +1,248 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--lt-bg-subtle);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-3) var(--lt-spacing-4);
+  background: var(--lt-bg-default);
+  border-bottom: 1px solid var(--lt-border-default);
+}
+
+.headerTitle {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.body {
+  flex: 1;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--lt-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-6);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}
+
+.sectionLabel {
+  margin: 0;
+  color: var(--lt-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-1);
+}
+
+.input {
+  width: 100%;
+  padding: var(--lt-spacing-3);
+  font-size: var(--lt-text-body-font-size);
+  font-family: inherit;
+  color: var(--lt-text-default);
+  background: var(--lt-bg-default);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  border-color: var(--lt-border-primary);
+}
+
+.textarea {
+  composes: input;
+  min-height: 4rem;
+  resize: vertical;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lt-spacing-2);
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  padding: var(--lt-spacing-1) var(--lt-spacing-3);
+  font-size: var(--lt-text-body-sm-font-size);
+  font-family: inherit;
+  color: var(--lt-text-default);
+  background: var(--lt-bg-default);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.chip:hover {
+  background: var(--lt-bg-subtle);
+}
+
+.chipSelected {
+  background: var(--lt-bg-primary-subtle);
+  border-color: var(--lt-border-primary);
+  color: var(--lt-text-primary);
+}
+
+.durationRow {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+}
+
+.suggestedHint {
+  margin: 0;
+  color: var(--lt-text-muted);
+  cursor: pointer;
+}
+
+.suggestedHint:hover {
+  text-decoration: underline;
+}
+
+.exerciseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}
+
+.exerciseCard {
+  --lt-surface-bg: var(--lt-bg-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-4);
+}
+
+.supersetBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+  font-size: var(--lt-text-caption-font-size);
+  color: var(--lt-text-info);
+  background: var(--lt-bg-info-subtle);
+  padding: var(--lt-spacing-0) var(--lt-spacing-2);
+  border-radius: var(--lt-border-radius);
+}
+
+.exerciseFields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--lt-spacing-3);
+}
+
+@media (max-width: 480px) {
+  .exerciseFields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldCell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-1);
+  align-items: center;
+}
+
+.fieldLabel {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.optionsToggle {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--lt-text-caption-font-size);
+  font-family: inherit;
+  color: var(--lt-text-muted);
+  cursor: pointer;
+  text-align: left;
+}
+
+.optionsToggle:hover {
+  color: var(--lt-text-default);
+}
+
+.optionsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+  padding-top: var(--lt-spacing-2);
+  border-top: 1px solid var(--lt-border-subtle);
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+}
+
+.checkbox {
+  accent-color: var(--lt-bg-primary);
+}
+
+.cueInput {
+  composes: input;
+  padding: var(--lt-spacing-2);
+  font-size: var(--lt-text-body-sm-font-size);
+}
+
+.exerciseActions {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+}
+
+.emptyExercises {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-6);
+  text-align: center;
+}
+
+.emptyText {
+  margin: 0;
+  color: var(--lt-text-muted);
+  max-width: 20rem;
+}
+
+.footer {
+  padding: var(--lt-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  max-width: 40rem;
+  width: 100%;
+  margin: 0 auto;
+}

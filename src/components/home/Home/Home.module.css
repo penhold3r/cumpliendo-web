@@ -1,0 +1,211 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-5);
+  padding: var(--lt-spacing-6);
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Streak card ── */
+
+.streakCard {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.streakBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-5);
+}
+
+.streakTitle {
+  margin: 0;
+}
+
+.streakSubtitle {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.streakRecord {
+  margin: 0;
+  color: var(--lt-text-subtle);
+}
+
+.goalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lt-spacing-3);
+  margin-top: var(--lt-spacing-2);
+}
+
+.goalLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+}
+
+.goalText {
+  margin: 0;
+}
+
+.goalCount {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.dayCircles {
+  display: flex;
+  gap: var(--lt-spacing-2);
+  margin-top: var(--lt-spacing-1);
+}
+
+.dayCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--lt-border-default);
+  font-size: var(--lt-text-caption-font-size);
+  color: var(--lt-text-muted);
+  user-select: none;
+}
+
+.dayToday {
+  border-color: var(--lt-border-primary);
+  color: var(--lt-text-primary);
+  font-weight: 600;
+}
+
+/* ── Dashboard grid ── */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-5);
+}
+
+@media (min-width: 1024px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--lt-spacing-6);
+  }
+}
+
+.dashLeft,
+.dashRight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-4);
+}
+
+.sectionTitle {
+  margin: 0;
+}
+
+/* ── Metrics grid ── */
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--lt-spacing-4);
+}
+
+.metricCard {
+  background: var(--lt-bg-default);
+  border: 1px solid var(--lt-border-default);
+  border-radius: var(--lt-border-radius);
+  padding: var(--lt-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-2);
+}
+
+.metricTop {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-2);
+}
+
+.metricIconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--lt-bg-primary-subtle);
+  color: var(--lt-text-primary);
+  flex-shrink: 0;
+}
+
+.metricLabel {
+  color: var(--lt-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+}
+
+.metricValue {
+  margin: 0;
+}
+
+.metricSub {
+  color: var(--lt-text-subtle);
+  font-size: var(--lt-text-caption-font-size);
+}
+
+/* ── Cards ── */
+
+.card {
+  --lt-surface-bg: var(--lt-bg-default);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-5);
+}
+
+.cardTitle {
+  margin: 0;
+}
+
+.cardSubtitle {
+  margin: 0;
+  color: var(--lt-text-muted);
+}
+
+.cardVolume {
+  margin: 0;
+  color: var(--lt-text-primary);
+}
+
+.lastSessionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--lt-spacing-4);
+}
+
+.emptyAction {
+  margin-top: var(--lt-spacing-2);
+  align-self: flex-start;
+}
+
+/* ── Routines stack ── */
+
+.routineStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lt-spacing-3);
+}

@@ -1,0 +1,12 @@
+.picker {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-4);
+  flex-wrap: wrap;
+}
+
+.presets {
+  display: flex;
+  gap: var(--lt-spacing-2);
+  flex-wrap: wrap;
+}

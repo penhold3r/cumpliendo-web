@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-3);
+  padding: var(--lt-spacing-2) 0;
+}
+
+.icon {
+  color: var(--lt-text-primary);
+  flex-shrink: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  color: var(--lt-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subtitle {
+  color: var(--lt-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--lt-spacing-1);
+  flex-shrink: 0;
+}
