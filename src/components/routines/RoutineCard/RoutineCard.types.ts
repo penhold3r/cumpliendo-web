@@ -17,6 +17,7 @@ export interface RoutineCardProps {
       repsMax?: number;
       toFailure?: boolean;
       perSide?: boolean;
+      cue?: string;
     }[];
     warmupMinutes?: number;
     cooldownMinutes?: number;

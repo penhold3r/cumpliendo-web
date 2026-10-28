@@ -9,7 +9,6 @@ import {
   type WorkoutSession,
   type WorkoutSet,
 } from '../../types';
-import { INITIAL_EXERCISES } from '../../data/exercises';
 import { INITIAL_ROUTINES } from '../../data/routines';
 
 const now = 1_700_000_000_000;

@@ -3,7 +3,7 @@
 import { Text } from '@latty-ds/react';
 import { useTranslation } from '@/i18n';
 import styles from './HomeInsightSheet.module.css';
-import type { HomeInsightSheetProps, InsightKind } from './HomeInsightSheet.types';
+import type { HomeInsightSheetProps } from './HomeInsightSheet.types';
 
 
 export function HomeInsightSheet({ kind, onDismiss }: HomeInsightSheetProps) {

@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useSession } from 'next-auth/react';
-import { useWorkout } from '@/context/WorkoutContext';
 import { i18n } from '@/i18n';
 import { Home } from './Home';
 

@@ -5,7 +5,6 @@ import { Text } from '@latty-ds/react';
 import { useTranslation, exerciseName, musclesLabel, equipmentLabel } from '@/i18n';
 import { useAuth } from '@/context/AuthContext';
 import { useWorkout } from '@/context/WorkoutContext';
-import { INITIAL_EXERCISES } from '@/data/exercises';
 import { matchesExerciseFilter } from '@/utils/exerciseFilter';
 import { type ExerciseFilters as Filters, EMPTY_EXERCISE_FILTERS } from '@/data/exerciseOptions';
 import { ExerciseFilters } from '../ExerciseFilters';

@@ -36,7 +36,7 @@ describe('FinishWorkoutDialog', () => {
   });
 
   it('does not render when closed', () => {
-    const { container } = render(<FinishWorkoutDialog open={false} onConfirm={vi.fn()} onDismiss={vi.fn()} />);
+    render(<FinishWorkoutDialog open={false} onConfirm={vi.fn()} onDismiss={vi.fn()} />);
 
     expect(screen.queryByText('Finish workout?')).not.toBeInTheDocument();
   });

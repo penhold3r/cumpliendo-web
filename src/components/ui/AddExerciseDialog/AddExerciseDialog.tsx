@@ -26,12 +26,19 @@ export function AddExerciseDialog({ open, onClose, onSelect }: AddExerciseDialog
   const [chosenEquipment, setChosenEquipment] = useState<Equipment>('');
   const [showAllEquipment, setShowAllEquipment] = useState(false);
 
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open && !prevOpen) {
+    setQuery('');
+    setSelected(null);
+    setChosenEquipment('');
+    setShowAllEquipment(false);
+  }
+  if (open !== prevOpen) {
+    setPrevOpen(open);
+  }
+
   useEffect(() => {
     if (open) {
-      setQuery('');
-      setSelected(null);
-      setChosenEquipment('');
-      setShowAllEquipment(false);
       requestAnimationFrame(() => searchRef.current?.focus());
     }
   }, [open]);

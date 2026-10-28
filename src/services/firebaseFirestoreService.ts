@@ -102,12 +102,20 @@ export async function saveUserProfile(user: {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function fetchUserDataFromFirestore(..._args: unknown[]) { return null; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function saveStatsToFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function saveWorkoutSessionToFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function deleteWorkoutSessionFromFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function saveRoutineToFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function deleteRoutineFromFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function saveExerciseToFirestore(..._args: unknown[]) { return; }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function deleteExerciseFromFirestore(..._args: unknown[]) { return; }
 export {};

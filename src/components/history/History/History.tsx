@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Icon, Surface, Text } from '@latty-ds/react';
+import { Button, Icon, Text } from '@latty-ds/react';
 import { useTranslation } from '@/i18n';
 import { useAuth } from '@/context/AuthContext';
 import { PageSkeleton } from '@/components/ui/PageSkeleton';

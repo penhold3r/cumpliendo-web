@@ -1,12 +1,10 @@
 'use client';
 
 import { Text } from '@latty-ds/react';
-import { useTranslation } from '@/i18n';
 import styles from './CircuitBlock.module.css';
 import type { CircuitBlockProps } from './CircuitBlock.types';
 
 export function CircuitBlock({ name, rounds, workSeconds, restSeconds, exercises }: CircuitBlockProps) {
-  const { t } = useTranslation();
 
   return (
     <div className={styles.block}>

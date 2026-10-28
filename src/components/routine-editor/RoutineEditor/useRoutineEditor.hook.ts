@@ -111,7 +111,9 @@ export function useRoutineEditor({
     !sameExercises(exercisesList, initialRoutine ? initialExercises : []);
 
   const onBackRef = useRef(onBack);
-  onBackRef.current = onBack;
+  useEffect(() => {
+    onBackRef.current = onBack;
+  });
 
   const handleBack = useCallback(() => {
     if (isDirty) {

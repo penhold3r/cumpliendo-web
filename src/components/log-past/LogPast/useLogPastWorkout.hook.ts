@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useWorkout } from '@/context/WorkoutContext';
 import { workoutActions } from '@/context/WorkoutContext/WorkoutContext.actions';
 import { buildPastWorkoutSession } from '@/context/WorkoutContext/WorkoutContext.utils';
@@ -196,8 +196,8 @@ export function useLogPastWorkout({
     cooldownMinutes,
     durationMinutes,
   });
-  const initialSnapshotRef = useRef(snapshot);
-  const isDirty = snapshot !== initialSnapshotRef.current;
+  const [initialSnapshot] = useState(snapshot);
+  const isDirty = snapshot !== initialSnapshot;
 
   const handleBack = useCallback(() => {
     if (isDirty) {

@@ -1,5 +1,4 @@
-import type { ExerciseFilters, hasActiveFilters } from '@/data/exerciseOptions';
-import styles from './ExerciseFilters.module.css';
+import type { ExerciseFilters } from '@/data/exerciseOptions';
 
 export interface ExerciseFiltersProps {
   filters: ExerciseFilters;

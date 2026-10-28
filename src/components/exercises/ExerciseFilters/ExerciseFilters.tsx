@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Text } from '@latty-ds/react';
+import { Text } from '@latty-ds/react';
 import { useTranslation } from '@/i18n';
 import { type ExerciseFilters, hasActiveFilters } from '@/data/exerciseOptions';
 import styles from './ExerciseFilters.module.css';
@@ -10,21 +10,21 @@ export function ExerciseFilters({ filters, onChange }: ExerciseFiltersProps) {
   const { t } = useTranslation();
 
   const toggleType = (type: string) => {
-    const newTypes = filters.types.includes(type as any)
+    const newTypes = filters.types.includes(type)
       ? filters.types.filter(t => t !== type)
       : [...filters.types, type];
     onChange({ ...filters, types: newTypes });
   };
 
   const toggleMuscle = (muscle: string) => {
-    const newMuscles = filters.muscles.includes(muscle as any)
+    const newMuscles = filters.muscles.includes(muscle)
       ? filters.muscles.filter(m => m !== muscle)
       : [...filters.muscles, muscle];
     onChange({ ...filters, muscles: newMuscles });
   };
 
   const toggleEquipment = (equipment: string) => {
-    const newEquipment = filters.equipment.includes(equipment as any)
+    const newEquipment = filters.equipment.includes(equipment)
       ? filters.equipment.filter(e => e !== equipment)
       : [...filters.equipment, equipment];
     onChange({ ...filters, equipment: newEquipment });
@@ -44,7 +44,7 @@ export function ExerciseFilters({ filters, onChange }: ExerciseFiltersProps) {
           {['strength', 'functional', 'crossfit', 'hiit', 'cardio'].map(type => (
             <button
               key={type}
-              className={`${styles.chip} ${filters.types.includes(type as any) ? styles.chipActive : ''}`}
+              className={`${styles.chip} ${filters.types.includes(type) ? styles.chipActive : ''}`}
               onClick={() => toggleType(type)}
             >
               {type}
@@ -61,7 +61,7 @@ export function ExerciseFilters({ filters, onChange }: ExerciseFiltersProps) {
           {['chest', 'back', 'legs', 'shoulders', 'arms', 'core', 'glutes'].map(muscle => (
             <button
               key={muscle}
-              className={`${styles.chip} ${filters.muscles.includes(muscle as any) ? styles.chipActive : ''}`}
+              className={`${styles.chip} ${filters.muscles.includes(muscle) ? styles.chipActive : ''}`}
               onClick={() => toggleMuscle(muscle)}
             >
               {muscle}
@@ -78,7 +78,7 @@ export function ExerciseFilters({ filters, onChange }: ExerciseFiltersProps) {
           {['barbell', 'dumbbells', 'kettlebell', 'cable', 'machine'].map(equip => (
             <button
               key={equip}
-              className={`${styles.chip} ${filters.equipment.includes(equip as any) ? styles.chipActive : ''}`}
+              className={`${styles.chip} ${filters.equipment.includes(equip) ? styles.chipActive : ''}`}
               onClick={() => toggleEquipment(equip)}
             >
               {equip}

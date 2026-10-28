@@ -17,7 +17,6 @@ import { INITIAL_EXERCISES } from '@/data/exercises';
 import {
   fetchUserDataFromFirestore,
   saveStatsToFirestore,
-  saveWorkoutSessionToFirestore,
 } from '@/services/firebaseFirestoreService';
 import {
   workoutActions,

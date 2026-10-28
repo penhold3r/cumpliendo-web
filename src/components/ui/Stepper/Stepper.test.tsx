@@ -84,7 +84,7 @@ describe('Stepper', () => {
       <Stepper value={3} onChange={() => {}} label="sets" />,
     );
     const { decrease, increase } = getButtons(container);
-    expect((decrease as any).label).toBe('Decrease sets');
-    expect((increase as any).label).toBe('Increase sets');
+    expect((decrease as HTMLElement).getAttribute('label')).toBe('Decrease sets');
+    expect((increase as HTMLElement).getAttribute('label')).toBe('Increase sets');
   });
 });

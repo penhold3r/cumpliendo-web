@@ -1,19 +1,11 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import { AppHeader } from '../AppHeader';
 import { BottomNavigation } from '../BottomNavigation';
 import { TabPager } from '../TabPager';
 import styles from './AppShell.module.css';
 import type { AppShellProps } from './AppShell.types';
-
-const TABS = [
-  { id: 'home', label: 'Home', route: '/home' },
-  { id: 'routines', label: 'Routines', route: '/routines' },
-  { id: 'train', label: 'Train', route: '/train' },
-  { id: 'history', label: 'History', route: '/history' },
-  { id: 'exercises', label: 'Exercises', route: '/exercises' },
-] as const;
 
 export function AppShell({ children }: AppShellProps) {
   const [activeTab, setActiveTab] = useState('home');

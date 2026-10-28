@@ -1,12 +1,10 @@
 'use client';
 
 import { Text } from '@latty-ds/react';
-import { useTranslation } from '@/i18n';
 import styles from './AmrapBlock.module.css';
 import type { AmrapBlockProps } from './AmrapBlock.types';
 
 export function AmrapBlock({ timeCapMinutes, rounds, exercises }: AmrapBlockProps) {
-  const { t } = useTranslation();
 
   return (
     <div className={styles.block}>

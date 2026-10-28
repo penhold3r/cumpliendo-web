@@ -86,7 +86,7 @@ export function RoutineCard({ routine, onStartRoutine, onEditRoutine, onDeleteRo
                   {equipment ? ` (${equipment})` : ''}
                 </Text>
                 <Text variant="caption" className={styles.exerciseTarget}>
-                  {targetLabel(targetFromTemplate(item as any))}
+                  {targetLabel(targetFromTemplate(item))}
                 </Text>
               </div>
             );
